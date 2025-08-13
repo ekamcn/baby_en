@@ -1,16 +1,16 @@
-import { type LoaderFunctionArgs } from '@shopify/remix-oxygen';
-import { Await, useLoaderData, Link, type MetaFunction } from 'react-router';
-import { Suspense } from 'react';
-import { Image, Money } from '@shopify/hydrogen';
+import {type LoaderFunctionArgs} from '@shopify/remix-oxygen';
+import {Await, useLoaderData, Link, type MetaFunction} from 'react-router';
+import {Suspense} from 'react';
+import {Image, Money} from '@shopify/hydrogen';
 import type {
   FeaturedCollectionFragment,
   RecommendedProductsQuery,
 } from 'storefrontapi.generated';
-import { ProductItem } from '~/components/ProductItem';
-import { ImageBanner } from '~/components/ImageBanner';
-import { AllProductsWidget } from '~/components/AllProductsWidget';
-import { AllCollectionsWidgetSimple } from '~/components/AllCollections';
-import { CollectionByHandle } from '~/components/GetCollectionByHandle';
+import {ProductItem} from '~/components/ProductItem';
+import {ImageBanner} from '~/components/ImageBanner';
+import {AllProductsWidget} from '~/components/AllProductsWidget';
+import {AllCollectionsWidgetSimple} from '~/components/AllCollections';
+import {CollectionByHandle} from '~/components/GetCollectionByHandle';
 import FaqSection from '~/components/FaqSection';
 
 const sections = [
@@ -29,12 +29,11 @@ const sections = [
               If you don’t find the answer to your question, feel free to email
               us at{' '}
               <a
-                href={`mailto:${import.meta.env.VITE_CUSTOMER_SUPPORT_EMAIL || 'Email Not Set'}`}
+                href={`mailto:${import.meta.env.VITE_CUSTOMER_SUPPORT_EMAIL}`}
                 className=" hover:text-blue-300 transition-colors !text-[var(--color-1)] underline underline-offset-4"
               >
                 {import.meta.env.VITE_CUSTOMER_SUPPORT_EMAIL || 'Email Not Set'}
               </a>
-              "
             </p>
           </div>
         ),
@@ -87,7 +86,7 @@ const sections = [
 ];
 
 export const meta: MetaFunction = () => {
-  return [{ title: 'Hydrogen | Home' }];
+  return [{title: 'Hydrogen | Home'}];
 };
 
 export async function loader(args: LoaderFunctionArgs) {
@@ -97,15 +96,15 @@ export async function loader(args: LoaderFunctionArgs) {
   // Await the critical data required to render initial state of the page
   const criticalData = await loadCriticalData(args);
 
-  return { ...deferredData, ...criticalData };
+  return {...deferredData, ...criticalData};
 }
 
 /**
-* Load data necessary for rendering content above the fold. This is the critical data
-* needed to render the page. If it's unavailable, the whole page should 400 or 500 error.
-*/
-async function loadCriticalData({ context }: LoaderFunctionArgs) {
-  const [{ collections }] = await Promise.all([
+ * Load data necessary for rendering content above the fold. This is the critical data
+ * needed to render the page. If it's unavailable, the whole page should 400 or 500 error.
+ */
+async function loadCriticalData({context}: LoaderFunctionArgs) {
+  const [{collections}] = await Promise.all([
     context.storefront.query(FEATURED_COLLECTION_QUERY),
     // Add other queries here, so that they are loaded in parallel
   ]);
@@ -116,11 +115,11 @@ async function loadCriticalData({ context }: LoaderFunctionArgs) {
 }
 
 /**
-* Load data for rendering content below the fold. This data is deferred and will be
-* fetched after the initial page load. If it's unavailable, the page should still 200.
-* Make sure to not throw any errors here, as it will cause the page to 500.
-*/
-function loadDeferredData({ context }: LoaderFunctionArgs) {
+ * Load data for rendering content below the fold. This data is deferred and will be
+ * fetched after the initial page load. If it's unavailable, the page should still 200.
+ * Make sure to not throw any errors here, as it will cause the page to 500.
+ */
+function loadDeferredData({context}: LoaderFunctionArgs) {
   const recommendedProducts = context.storefront
     .query(RECOMMENDED_PRODUCTS_QUERY)
     .catch((error) => {
@@ -142,15 +141,16 @@ export default function Homepage() {
         title="Cosy Critters "
         imageUrl={import.meta.env.VITE_BANNER}
         mobileImageUrl={import.meta.env.VITE_MOBILE_BANNER}
-        subtitle="At Cosy Critters, every pet is more than just a companion — they're family."
-        description="That’s why we created a boutique entirely dedicated to their comfort, happiness, and everyday well-being. Our mission is to bring you high-quality, practical, soft, and irresistibly cute products to pamper your loyal companion just the way they deserve."
+        subtitle="At Baby & Bean, our mission is simple:"
+        description="To support parents through life’s most beautiful moments by offering practical, gentle products designed with their baby’s well-being in mind.
+         We know just how much the arrival of a child can transform a life. Between love, exhaustion, wonder, and worry — every day matters. That’s why we created Bubblie Baby: an online boutique filled with carefully selected items, made to meet the needs of little ones and the parents who care for them."
         buttonText="Shop Now"
         buttonUrl=""
       />
 
       <CollectionByHandle
         handle="offre-flash"
-        title="offer flash"
+        // title="offer flash"
         limit={6}
         columnSize="6"
         badgeText="Flash Sale"
@@ -162,10 +162,11 @@ export default function Homepage() {
 
       <CollectionByHandle
         handle="derniere-chance"
-        title="derniere chance"
+        // title="derniere chance"
         limit={20}
         columnSize="4"
         badgeText="Last Chance"
+        badgeIcon={true}
         showTitle={true}
         showDescription={false}
         className="featured-collection"
@@ -177,7 +178,7 @@ export default function Homepage() {
 
       <CollectionByHandle
         handle="tout-a-moins-de-20"
-        title="tout a moins de 20"
+        // title="tout a moins de 20"
         limit={20}
         columnSize="5"
         showTitle={true}
@@ -186,7 +187,7 @@ export default function Homepage() {
         className="featured-collection"
       />
 
-      <FaqSection sections={sections} showNewsletter rounded heading='Emails'/>
+      <FaqSection sections={sections} showNewsletter rounded heading="Emails" />
 
       {/* <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} /> */}
@@ -230,8 +231,8 @@ function RecommendedProducts({
             <div className="recommended-products-grid">
               {response
                 ? response.products.nodes.map((product) => (
-                  <ProductItem key={product.id} product={product} />
-                ))
+                    <ProductItem key={product.id} product={product} />
+                  ))
                 : null}
             </div>
           )}
@@ -293,4 +294,3 @@ const RECOMMENDED_PRODUCTS_QUERY = `#graphql
     }
   }
 ` as const;
-
