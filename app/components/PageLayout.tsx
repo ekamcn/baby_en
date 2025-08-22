@@ -61,9 +61,9 @@ export function PageLayout({
             publicStoreDomain={publicStoreDomain}
           />
         )}
-      </Aside.Provider>
-      <Aside.Provider contextId="filters">
-        <main>{children}</main>
+        <Aside.Provider contextId="filters">
+          <main>{children}</main>
+        </Aside.Provider>
       </Aside.Provider>
       <Footer />
     </>
@@ -177,14 +177,14 @@ function MobileMenuAside({
     header.menu &&
     header.shop.primaryDomain?.url && (
       <div className="lg:hidden">
-      <Aside type="mobile" heading="MENU" contextId="header">
-        <HeaderMenu
-          menu={header.menu}
-          viewport="mobile"
-          primaryDomainUrl={header.shop.primaryDomain.url}
-          publicStoreDomain={publicStoreDomain}
-        />
-      </Aside>
+        <Aside type="mobile" heading="MENU" contextId="header">
+          <HeaderMenu
+            menu={header.menu}
+            viewport="mobile"
+            primaryDomainUrl={header.shop.primaryDomain.url}
+            publicStoreDomain={publicStoreDomain}
+          />
+        </Aside>
       </div>
     )
   );

@@ -26,11 +26,12 @@ const sections = [
               carefully before contacting us.
             </p>
             <p>
+              
               If you don’t find the answer to your question, feel free to email
               us at{' '}
               <a
                 href={`mailto:${import.meta.env.VITE_CUSTOMER_SUPPORT_EMAIL}`}
-                className=" hover:text-blue-300 transition-colors !text-[var(--color-1)] underline underline-offset-4"
+                className=" hover:text-blue-300 transition-colors !text-[var(--color-footer)] underline underline-offset-4"
               >
                 {import.meta.env.VITE_CUSTOMER_SUPPORT_EMAIL || 'Email Not Set'}
               </a>
@@ -138,10 +139,10 @@ export default function Homepage() {
   return (
     <div className="home">
       <ImageBanner
-        title="Cosy Critters "
+        title={import.meta.env.VITE_STORE_TITLE}
         imageUrl={import.meta.env.VITE_BANNER}
         mobileImageUrl={import.meta.env.VITE_MOBILE_BANNER}
-        subtitle="At Baby & Bean, our mission is simple:"
+        subtitle={`At ${import.meta.env.VITE_STORE_TITLE}, our mission is simple:`}
         description="To support parents through life’s most beautiful moments by offering practical, gentle products designed with their baby’s well-being in mind.
          We know just how much the arrival of a child can transform a life. Between love, exhaustion, wonder, and worry — every day matters. That’s why we created Bubblie Baby: an online boutique filled with carefully selected items, made to meet the needs of little ones and the parents who care for them."
         buttonText="Shop Now"

@@ -35,7 +35,7 @@ export function Footer() {
               <h3 className="text-lg font-semibold mb-4">About Us</h3>
               <div className="flex flex-col gap-4">
                 <p className="text-sm leading-relaxed w-3/4">
-                At Baby & Bean, our mission is simple: to support parents through life’s most precious moments by offering practical, gentle, and thoughtfully designed products that prioritize their baby’s comfort and well-being.
+                At {import.meta.env.VITE_STORE_TITLE}, our mission is simple: to support parents through life’s most precious moments by offering practical, gentle, and thoughtfully designed products that prioritize their baby’s comfort and well-being.
                 </p>
               </div>
             </div>
@@ -53,7 +53,7 @@ export function Footer() {
                   Our team is here to help! For any inquiries, simply send us an email at{' '}
                   <a
                     href={`mailto:${import.meta.env.VITE_CUSTOMER_SUPPORT_EMAIL}`}
-                    className=" hover:text-blue-300 transition-colors !text-[var(--color-1)] underline underline-offset-4"
+                    className=" hover:text-blue-300 transition-colors !text-[var(--color-footer)] underline underline-offset-4"
 
                   >
                     {import.meta.env.VITE_CUSTOMER_SUPPORT_EMAIL}
@@ -71,13 +71,13 @@ export function Footer() {
                   <li className="break-words"><strong>Address:</strong> {import.meta.env.VITE_COMPANY_ADDRESS}</li>
                   <li className="break-words"><strong>Mail:</strong> <a
                     href={`mailto:${import.meta.env.VITE_CUSTOMER_SUPPORT_EMAIL}`}
-                    className="hover:text-blue-300 transition-colors !text-[var(--color-1)] underline underline-offset-4 break-all"
+                    className="hover:text-blue-300 transition-colors !text-[var(--color-footer)] underline underline-offset-4 break-all"
                   >
                     {import.meta.env.VITE_CUSTOMER_SUPPORT_EMAIL}
                   </a></li>
                   <li><strong>Tel:</strong> <a
-                    href={`${import.meta.env.VITE_CUSTOMER_SERVICE_PHONE}`}
-                    className="hover:text-blue-300 transition-colors !text-[var(--color-1)] underline underline-offset-4"
+                   href={`tel:${import.meta.env.VITE_CUSTOMER_SERVICE_PHONE}`}
+                    className="hover:text-blue-300 transition-colors !text-[var(--color-footer)] underline underline-offset-4"
                   >
                     {import.meta.env.VITE_CUSTOMER_SERVICE_PHONE}
                   </a></li>
@@ -156,8 +156,8 @@ export function Footer() {
                   <p className="!text-white text-sm lg:text-base">
                     Our team is here to assist you! Just send us an email at{' '}
                     <a
-                      href="mailto:{import.meta.env.VITE_CUSTOMER_SUPPORT_EMAIL}"
-                      className=" hover:text-blue-300 transition-colors !text-[var(--color-1)] underline underline-offset-4"
+                      href={`mailto:${import.meta.env.VITE_CUSTOMER_SUPPORT_EMAIL}`}
+                      className=" hover:text-blue-300 transition-colors !text-[var(--color-footer)] underline underline-offset-4"
                     >
                       {import.meta.env.VITE_CUSTOMER_SUPPORT_EMAIL}
                     </a>
@@ -236,7 +236,7 @@ export function Footer() {
             {/* Copyright */}
             <div className="text-center mt-4">
               <p className="text-white !text-sm">
-                © 2025, {import.meta.env.VITE_STORE_NAME}®
+                © 2025, {import.meta.env.VITE_STORE_TITLE}®
               </p>
             </div>
           </div>
