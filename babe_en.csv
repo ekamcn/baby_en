@@ -1,0 +1,11 @@
+title,description,handle,match_any,type,operator,value
+Last Chance,Derniere Chance,derniere-chance,FALSE,VARIANT_PRICE,GREATER_THAN,21
+Toys & Early Learning,Jouets & Éveil,jouets-eveil,FALSE,vendor,equals,Jouets & Éveil
+Flash Sale,Offre Flash,offre-flash,TRUE,VARIANT_PRICE,GREATER_THAN,20
+Flash Sale,Offre Flash,offre-flash02,TRUE,VARIANT_PRICE,LESS_THAN,45
+Clothing & Accessories,Vêtements & Accessoires,vetements-accessoires,FALSE,vendor,equals,Vêtements & Accessoires
+Childcare & Baby Care,Puériculture & Soins Bébé,puericulture-soins-bebe,FALSE,vendor,equals,Puériculture & soins bébé
+Everything under 20€,Tout à moins de 20€,tout-a-moins-de-20,FALSE,VARIANT_PRICE,LESS_THAN,21
+Home & Comfort,Maison & Confort,maison-confort,FALSE,vendor,equals,Maison & confort
+Baby Furniture & Accessories,Mobilier & Accessoires Bébé,mobilier-accessoires-bebe,FALSE,vendor,equals,Mobiliers & Accessoires
+Outings & Travel,Sortie & Déplacement,sortie-deplacement,FALSE,vendor,equals,Sortie & déplacement
